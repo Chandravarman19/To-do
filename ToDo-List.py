@@ -42,7 +42,8 @@ def exit_task() :
 
 
 while True:
-    
+  
+  print("\n TO-DO LIST")  
   print("\n 1.Add New tasks")
   print("\n 2. View tasks")
   print("\n 3.Update tasks")
@@ -65,5 +66,5 @@ while True:
   elif choice == "5":
       print("Goodbye")
       break
-print("Thank you for visiting our bank")
+print("Journal Improvises Life")
   
