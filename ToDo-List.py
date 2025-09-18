@@ -65,4 +65,5 @@ while True:
   elif choice == "5":
       print("Goodbye")
       break
+print("Thank you for visiting our bank")
   
