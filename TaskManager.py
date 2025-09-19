@@ -10,11 +10,11 @@ def load_tasks(): #Load tasks from file
     except json.JSONDecodeError: #If file is corrupted?empty, return empty list.
         return[]
     
-def save_tasks(): # Save tasks to file
+def save_tasks(tasks): # Save tasks to file
     with open(FILENAME, "w") as f:
         json.dump(tasks, f, indent=4)
 
-def views_tasks(): # Display all tasks
+def views_tasks(tasks): # Display all tasks
     if not tasks:
         print("\n No tasks found!\n")
         return
@@ -23,7 +23,7 @@ def views_tasks(): # Display all tasks
         print(f"{i}.{task['title']}-{task['status']}")
     print()
 
-def  add_tasks():
+def  add_tasks(tasks):
     title = input("Enter task title:").strip()
     if title == "":
         print("Task cannot be empty")
@@ -31,7 +31,7 @@ def  add_tasks():
         save_tasks(tasks)
         print("Task added successfully")
 
-def update_tasks(): #Updating the Task status
+def update_tasks(tasks): #Updating the Task status
     view_tasks(tasks) 
     if not tasks:
         return
