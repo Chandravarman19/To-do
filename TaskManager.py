@@ -22,3 +22,26 @@ def views_tasks(): # Display all tasks
     for i, task in enumerate (tasks, start = 1):
         print(f"{i}.{task['title']}-{task['status']}")
     print()
+
+def  add_tasks():
+    title = input("Enter task title:").strip()
+    if title == "":
+        print("Task cannot be empty")
+        returntasks.append({"title": title, "status": "Pending"})
+        save_tasks(tasks)
+        print("Task added successfully")
+
+def update_tasks(): #Updating the Task status
+    view_tasks(tasks) 
+    if not tasks:
+        return
+    try:
+        choice = int(input("Enter task number to update:"))
+        if 1 <= choice <= len(tasks):
+            tasks[choice -1]["status"] = "DONE"
+            save_tasks(tasks)
+            print("Updating Task is DONE")
+        else:
+            print("Invalis Task number") 
+    except ValueError:
+        print("Please enter a valid number")                                  
