@@ -45,3 +45,19 @@ def update_tasks(tasks): #Updating the Task status
             print("Invalis Task number") 
     except ValueError:
         print("Please enter a valid number")                                  
+
+def delete_taks(tasks):
+    view_tasks(tasks)
+    if not tasks:
+        return
+    try:
+        choice = int(input("Enter task number to delete"))
+        if 1<= choice <= len(tasks):
+            removed =tasks.pop(choice -1)
+            save_tasks(tasks)
+            print(f"Task'{removed['title']}' deleted")
+        else:
+            print("Invalid task number")
+    except ValueError:
+        print("Please Enter a valid number")
+        
