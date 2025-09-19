@@ -14,7 +14,7 @@ def save_tasks(tasks): # Save tasks to file
     with open(FILENAME, "w") as f:
         json.dump(tasks, f, indent=4)
 
-def views_tasks(tasks): # Display all tasks
+def view_tasks(tasks): # Display all tasks
     if not tasks:
         print("\n No tasks found!\n")
         return
@@ -27,9 +27,10 @@ def  add_tasks(tasks):
     title = input("Enter task title:").strip()
     if title == "":
         print("Task cannot be empty")
-        returntasks.append({"title": title, "status": "Pending"})
-        save_tasks(tasks)
-        print("Task added successfully")
+        return
+    tasks.append({"title": title, "status": "Pending"})
+    save_tasks(tasks)
+    print("Task added successfully")
 
 def update_tasks(tasks): #Updating the Task status
     view_tasks(tasks) 
@@ -38,15 +39,15 @@ def update_tasks(tasks): #Updating the Task status
     try:
         choice = int(input("Enter task number to update:"))
         if 1 <= choice <= len(tasks):
-            tasks[choice -1]["status"] = "DONE"
+            tasks[choice -1]["status"] = "Done"
             save_tasks(tasks)
             print("Updating Task is DONE")
         else:
-            print("Invalis Task number") 
+            print("Invalid Task number") 
     except ValueError:
         print("Please enter a valid number")                                  
 
-def delete_taks(tasks):
+def delete_tasks(tasks):
     view_tasks(tasks)
     if not tasks:
         return
