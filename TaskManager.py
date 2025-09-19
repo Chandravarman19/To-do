@@ -60,4 +60,35 @@ def delete_taks(tasks):
             print("Invalid task number")
     except ValueError:
         print("Please Enter a valid number")
-        
+
+def main():
+    tasks = load_tasks()
+    while True:
+        print("\n Task Manager\n")
+        print("1.View Tasks")
+        print("2.Add Tasks")
+        print("3.Update Tasks")
+        print("4.Delete Tasks")
+        print("5. Exit")
+
+        try:
+            choice = int(input("Enter Choice"))
+            if choice == 1:
+                view_tasks(tasks)
+            elif choice == 2:
+                add_tasks(tasks)
+            elif choice == 3:
+                update_tasks(tasks)
+            elif choice == 4:
+                delete_tasks(tasks)
+            elif choice == 5:
+                print("Exiting......Goodbye!")
+                break
+            else:
+                print("Invalid Choice ! Please enter 1-5.")
+        except ValueError:
+            print("Please enter numbers only(1-5)!")
+
+if __name__ == "__main__":
+    main()
+
